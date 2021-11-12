@@ -11,7 +11,7 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
-    @list.save
+    @list.save!
     redirect_to list_path(@list)
   end
 
@@ -22,6 +22,6 @@ class ListsController < ApplicationController
   private
 
   def list_params
-    params.require(:list).permit(:name, :movie_id)
+    params.require(:list).permit(:name, :movie_id, :photo)
   end
 end
